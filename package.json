@@ -1,0 +1,29 @@
+{
+  "name": "basesdk",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "debugCdn": "E:\\work\\client-debug",
+  "scripts": {
+    "build": "gulp",
+    "publish": "gulp publish"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "crypto-js": "^3.1.9-1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-footer": "^2.0.2",
+    "gulp-header": "^2.0.9",
+    "gulp-if": "^3.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^5.0.1",
+    "mocha": "^8.2.0",
+    "tern": "^0.24.1",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {}
+}

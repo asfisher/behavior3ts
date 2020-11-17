@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "module": "system",
+    "target": "es6",
+    "sourceMap": false,
+    "removeComments": false,
+    "outFile": "./dist/behavior3.js",
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules",
+    "bin/**/*.d.ts",
+    "dist/**/*.d.ts"
+  ]
+}
