@@ -1,0 +1,2 @@
+# behavior3ts
+基于behavior3的typescript版本
