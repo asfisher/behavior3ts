@@ -1,4 +1,4 @@
-namespace b3 {
+namespace b3.decorators {
     export class MaxTime extends Decorator {
         maxTime: number;
         constructor(d: IMaxTimeProp) {

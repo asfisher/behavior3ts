@@ -32,9 +32,12 @@ namespace b3 {
                 if (spec.name in names) {
                     // Look for the name in custom nodes
                     Cls = names[spec.name];
-                } else if (spec.name in b3) {
-                    // Look for the name in default nodes
-                    Cls = b3[spec.name];
+                } else if (spec.name in b3.actions) {
+                    Cls = b3.actions[spec.name];
+                } else if (spec.name in b3.composites) {
+                    Cls = b3.composites[spec.name];
+                } else if (spec.name in b3.decorators) {
+                    Cls = b3.decorators[spec.name];
                 } else {
                     // Invalid node name
                     throw new EvalError('BehaviorTree.load: Invalid node name + "' +

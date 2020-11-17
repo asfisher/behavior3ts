@@ -1,5 +1,5 @@
 ///<reference path="../core/Composite.ts"/>
-namespace b3 {
+namespace b3.composites {
     export class Priority extends Composite {
         constructor(d: ICompositeProp) {
             d.name = "Priority";

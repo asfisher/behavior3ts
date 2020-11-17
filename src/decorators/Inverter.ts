@@ -1,4 +1,4 @@
-namespace b3 {
+namespace b3.decorators {
     export class Inverter extends Decorator {
         constructor(d: IDecoratorProp) {
             d.name = "Inverter";

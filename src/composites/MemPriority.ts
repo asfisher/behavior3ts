@@ -1,5 +1,5 @@
 ///<reference path="../core/Composite.ts"/>
-namespace b3 {
+namespace b3.composites {
     export class MemPriority extends Composite {
         constructor(d: ICompositeProp) {
             d.name = "MemPriority";

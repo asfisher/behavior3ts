@@ -1,8 +1,8 @@
 namespace b3 {
-  export class Tick {
+  export class Tick<Target = any> {
     tree: any;
     debug: any;
-    target: any;
+    target: Target;
     blackboard: Blackboard;
     private _openNodes: any[];
     private _nodeCount: number;

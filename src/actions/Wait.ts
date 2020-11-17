@@ -1,5 +1,5 @@
 ///<reference path="../core/Action.ts"/>
-namespace b3 {
+namespace b3.actions {
     export class Wait extends Action {
         endTime: number;
         constructor(d: { milliseconds }) {

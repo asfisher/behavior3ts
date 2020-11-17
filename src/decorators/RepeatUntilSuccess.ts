@@ -1,4 +1,4 @@
-namespace b3 {
+namespace b3.decorators {
     //重复n次，或者直到遇到不是失败的状态为止
     export class RepeatUntilSuccess extends Decorator {
         maxLoop: number;

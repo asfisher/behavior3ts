@@ -1,4 +1,4 @@
-namespace b3 {
+namespace b3.decorators {
     export class Limiter extends Decorator {
         maxLoop: number;
         constructor(d: ILimiterProp) {
