@@ -1,4 +1,5 @@
 interface INodeProp {
+    id?:string;
     /**类别 */
     category?: string,
     name?: string,

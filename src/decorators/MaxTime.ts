@@ -2,14 +2,14 @@ namespace b3.decorators {
     export class MaxTime extends Decorator {
         maxTime: number;
         constructor(d: IMaxTimeProp) {
-            d.name = "MaxTime";
-            d.title = "Max <maxTime>ms";
-            d.properties = { maxTime: 0 };
             super(d);
+        }
+        
+        protected _parseProp(d: any) {
             if (!d.maxTime) {
                 throw 'maxTime parameter in MaxTime decorator is an obligatory parameter';
             }
-            this.maxTime = this.maxTime;
+            this.maxTime = d.maxTime || 0;
         }
 
         open(tick: Tick) {

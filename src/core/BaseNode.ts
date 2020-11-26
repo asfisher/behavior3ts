@@ -8,13 +8,18 @@ namespace b3 {
         description: string;
         parameters: any;
         constructor(d: INodeProp) {
-            this.id = createUUID();
+            this.id = d.id || createUUID();
             this.category = d.category || '';
             this.name = d.name || '';
             this.title = d.title || this.name;
             this.description = d.description || '';
             this.properties = d.properties || {};
             this.parameters = {};
+            this._parseProp(this.properties);
+        }
+
+        protected _parseProp(prop: any) {
+
         }
 
         /**
@@ -23,7 +28,7 @@ namespace b3 {
          * @return {Constant} The tick state.
          * @protected
          **/
-        execute(tick:Tick) {
+        execute(tick: Tick) {
             // ENTER
             this._enter(tick);
 
@@ -52,7 +57,7 @@ namespace b3 {
          * @param {Tick} tick A tick instance.
          * @protected
          **/
-        protected _enter(tick:Tick) {
+        protected _enter(tick: Tick) {
             tick.enterNode(this);
             this.enter(tick);
         }
@@ -63,7 +68,7 @@ namespace b3 {
          * @param {Tick} tick A tick instance.
          * @protected
          **/
-        protected _open(tick:Tick) {
+        protected _open(tick: Tick) {
             tick.openNode(this);
             tick.blackboard.set('isOpen', true, tick.tree.id, this.id);
             this.open(tick);
@@ -76,7 +81,7 @@ namespace b3 {
          * @return {Constant} A state constant.
          * @protected
          **/
-        protected _tick(tick:Tick) {
+        protected _tick(tick: Tick) {
             tick.tickNode(this);
             return this.tick(tick);
         }
@@ -87,7 +92,7 @@ namespace b3 {
          * @param {Tick} tick A tick instance.
          * @protected
          **/
-        protected _close(tick:Tick) {
+        protected _close(tick: Tick) {
             tick.closeNode(this);
             tick.blackboard.set('isOpen', false, tick.tree.id, this.id);
             this.close(tick);
@@ -99,7 +104,7 @@ namespace b3 {
          * @param {Tick} tick A tick instance.
          * @protected
          **/
-        protected _exit(tick:Tick) {
+        protected _exit(tick: Tick) {
             tick.exitNode(this);
             this.exit(tick);
         }
@@ -110,14 +115,14 @@ namespace b3 {
          * @method enter
          * @param {Tick} tick A tick instance.
          **/
-        enter(tick:Tick) { }
+        enter(tick: Tick) { }
 
         /**
          * 打开节点时运行的方法，只有节点打开时执行
          * @method open
          * @param {Tick} tick A tick instance.
          **/
-        open(tick:Tick) { }
+        open(tick: Tick) { }
 
         /**
          * 每次执行节点的方法
@@ -125,7 +130,7 @@ namespace b3 {
          * @method tick
          * @param {Tick} tick A tick instance.
          **/
-        abstract tick(tick:Tick): EnumStatus;
+        abstract tick(tick: Tick): EnumStatus;
 
         /**
          * 关闭节点的方法，当节点运行结果不是running时，会执行关闭
@@ -133,7 +138,7 @@ namespace b3 {
          * @method close
          * @param {Tick} tick A tick instance.
          **/
-        close(tick:Tick) { }
+        close(tick: Tick) { }
 
         /**
          * 退出节点时执行的方法
@@ -141,6 +146,6 @@ namespace b3 {
          * @method exit
          * @param {Tick} tick A tick instance.
          **/
-        exit(tick:Tick) { }
+        exit(tick: Tick) { }
     }
 }

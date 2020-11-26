@@ -3,10 +3,10 @@ namespace b3.decorators {
     export class RepeatUntilFailure extends Decorator {
         maxLoop: number;
         constructor(d: IRepeaterProp) {
-            d.name = "RepeatUntilFailure";
-            d.title = "Repeat Until Failure";
-            d.properties = { maxLoop: -1 };
             super(d);
+        }
+        
+        protected _parseProp(d:any){
             this.maxLoop = this.maxLoop || -1;
         }
 

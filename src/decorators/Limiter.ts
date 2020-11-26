@@ -2,14 +2,14 @@ namespace b3.decorators {
     export class Limiter extends Decorator {
         maxLoop: number;
         constructor(d: ILimiterProp) {
-            d.name = "Limiter";
-            d.title = "Limit <maxLoop> Activations";
-            d.properties = { maxLoop: 1 };
             super(d);
+        }
+        
+        protected _parseProp(d: any) {
             if (!d.maxLoop) {
                 throw 'maxLoop parameter in Limiter decorator is an obligatory parameter';
             }
-            this.maxLoop = d.maxLoop;
+            this.maxLoop = d.maxLoop || 1;
         }
 
         open(tick: Tick) {

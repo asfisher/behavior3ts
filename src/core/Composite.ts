@@ -4,7 +4,7 @@ namespace b3 {
         constructor(d: ICompositeProp) {
             d.category = EnumCategory.COMPOSITE;
             super(d);
-            this.children = d.children ? d.children.slice(0) : [];
+            this.children = [];
         }
     }
 }

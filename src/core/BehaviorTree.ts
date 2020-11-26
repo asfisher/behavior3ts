@@ -17,7 +17,7 @@ namespace b3 {
 
         load(data, names) {
             names = names || {};
-
+            this.id = data.id || this.id;
             this.title = data.title || this.title;
             this.description = data.description || this.description;
             this.properties = data.properties || this.properties;
@@ -44,11 +44,7 @@ namespace b3 {
                         spec.name + '".');
                 }
 
-                node = new Cls(spec.properties);
-                node.id = spec.id || node.id;
-                node.title = spec.title || node.title;
-                node.description = spec.description || node.description;
-                node.properties = spec.properties || node.properties;
+                node = new Cls(spec);
 
                 nodes[id] = node;
             }
