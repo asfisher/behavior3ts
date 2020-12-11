@@ -93,6 +93,7 @@ namespace b3 {
          * @protected
          **/
         protected _close(tick: Tick) {
+            if (!tick.blackboard.get('isOpen', tick.tree.id, this.id)) return;
             tick.closeNode(this);
             tick.blackboard.set('isOpen', false, tick.tree.id, this.id);
             this.close(tick);
