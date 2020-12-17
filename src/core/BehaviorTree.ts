@@ -181,16 +181,16 @@ namespace b3 {
 
             // does not close if it is still open in this tick
             var start = 0;
-            var i;
-            for (i = 0; i < Math.min(lastOpenNodes.length, currOpenNodes.length); i++) {
-                start = i + 1;
+            for (let i = 0, len = Math.min(lastOpenNodes.length, currOpenNodes.length); i < len; i++) {
                 if (lastOpenNodes[i] !== currOpenNodes[i]) {
+                    start = i;
                     break;
                 }
+                start = i + 1;
             }
 
             // close the nodes
-            for (i = lastOpenNodes.length - 1; i >= start; i--) {
+            for (let i = lastOpenNodes.length - 1; i >= start; i--) {
                 lastOpenNodes[i]._close(tick);
             }
 
