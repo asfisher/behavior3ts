@@ -2,13 +2,11 @@
 namespace b3.actions {
     export class Wait extends Action {
         endTime: number;
-        constructor(d: { milliseconds }) {
-            super({
-                name: 'Wait',
-                title: 'Wait <milliseconds>ms',
-                properties: { milliseconds: 0 },
-            });
+        constructor(d: INodeProp) {
+            super(d);
+        }
 
+        protected _parseProp(d: any) {
             this.endTime = d.milliseconds || 0;
         }
 
