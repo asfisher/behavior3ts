@@ -1,8 +1,8 @@
 ///<reference path="../core/Action.ts"/>
 namespace b3.actions {
     export class Succeeder extends Action {
-        constructor() {
-            super({ name: 'Succeeder' });
+        constructor(d?:INodeProp) {
+            super(d||{ name: 'Succeeder' });
         }
 
         tick(tick: Tick) {

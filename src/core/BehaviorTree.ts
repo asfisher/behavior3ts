@@ -6,8 +6,9 @@ namespace b3 {
         properties: any;
         root: BaseNode;
         debug: any;
-        constructor() {
-            this.id = createUUID();
+        nodes: { [id: string]: BaseNode };
+        constructor(id?: string) {
+            this.id = id || createUUID();
             this.title = 'The behavior tree';
             this.description = 'Default description';
             this.properties = {};
@@ -63,7 +64,7 @@ namespace b3 {
                     node.child = nodes[spec.child];
                 }
             }
-
+            this.nodes = nodes;
             this.root = nodes[data.root];
         }
 
@@ -191,7 +192,8 @@ namespace b3 {
 
             // close the nodes
             for (let i = lastOpenNodes.length - 1; i >= start; i--) {
-                lastOpenNodes[i]._close(tick);
+                let node:any=this.nodes[lastOpenNodes[i]];
+                node && node._close(tick);
             }
 
             /* POPULATE BLACKBOARD */

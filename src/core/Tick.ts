@@ -4,7 +4,7 @@ namespace b3 {
     debug: any;
     target: Target;
     blackboard: Blackboard;
-    private _openNodes: any[];
+    private _openNodes: string[];
     private _nodeCount: number;
     constructor() {
       this.tree = null;
@@ -23,7 +23,7 @@ namespace b3 {
      **/
     enterNode(node: BaseNode) {
       this._nodeCount++;
-      this._openNodes.push(node);
+      this._openNodes.push(node.id);
 
       // TODO: call debug here
     }

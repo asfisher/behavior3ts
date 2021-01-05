@@ -116,5 +116,14 @@ namespace b3 {
             var memory = this._getMemory(treeScope, nodeScope);
             return memory[key];
         }
+
+        getCache() {
+            return { base: this._baseMemory, tree: this._treeMemory };
+        }
+
+        setCache(base: any, tree: any) {
+            this._baseMemory = base;
+            this._treeMemory = tree;
+        }
     }
 }

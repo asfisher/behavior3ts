@@ -1,8 +1,8 @@
 ///<reference path="../core/Action.ts"/>
 namespace b3.actions {
     export class Failer extends Action {
-        constructor() {
-            super({ name: 'Failer' });
+        constructor(d?:INodeProp) {
+            super(d||{ name: 'Failer' });
         }
 
         tick(tick: Tick) {
