@@ -91,7 +91,7 @@ namespace b3 {
          *                           memory.
          * @param {String} nodeScope The node id if accessing the node memory.
          **/
-        set(key: string, value: any, treeScope: string, nodeScope: string) {
+        set(key: string, value: any, treeScope?: string, nodeScope?: string) {
             var memory = this._getMemory(treeScope, nodeScope);
             memory[key] = value;
         }
@@ -112,7 +112,7 @@ namespace b3 {
          * @param {String} nodeScope The node id if accessing the node memory.
          * @return {Object} The value stored or undefined.
          **/
-        get(key, treeScope, nodeScope) {
+        get(key, treeScope?, nodeScope?) {
             var memory = this._getMemory(treeScope, nodeScope);
             return memory[key];
         }
