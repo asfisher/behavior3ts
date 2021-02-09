@@ -45,6 +45,8 @@ function buildModel(modelName) {
             .pipe(header(`//版本号${version},编译时间${(new Date()).toString()}\r\n`))
             .pipe(gulp.dest("./"))
         return tscVinyl.js
+            .pipe(replace('var b3;', ''))
+            .pipe(header('var b3 = window.b3 = window.b3 || {};'))
             .pipe(sourcemaps.write('./'))
             .pipe(minify({ ext: { min: ".min.js" } }))
             .pipe(gulp.dest("./"))
